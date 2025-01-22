@@ -1,4 +1,5 @@
 # Assignment 2: Design a Logical Model and Advanced SQL
+**-Karen Yeung, submitted January xx, 2025**
 
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
@@ -14,8 +15,8 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-two`.
-- [ ] Ensure that the repository is public.
+- [x] Create a branch called `assignment-two`.
+- [x] Ensure that the repository is public.
 - [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
 - [ ] Verify that the link is accessible in a private browser window.
 
@@ -54,7 +55,20 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Option 1: CUSTOMER_ADDRESS table would have some number of columns storing customer
+information (eg. customer_id, first_name, last_name, phone_number, etc), and one column 
+storing their address. The value in this column would be overwritten if the customer's 
+address is updated, such that each customer would only ever have one up-to-date record. 
+This would be a type 1 SCD.
+
+Option 2: CUSTOMER_ADDRESS table would have columns storing customer information as in 
+option 1, but they would have multiple columns storing information about their address 
+(eg. address, is_current [boolean]). If a customer's address is to be updated, the new 
+address would be stored as a new record, such that each customer could have multiple rows 
+in the table. The is_current column would be updated to reflect whether the specific 
+address row is up-to-date (TRUE for current, FALSE for past). This would allow for 
+tracking of address changes. Additionally, more columns could be included to reflect when 
+a record is changed (eg. address_added_date). This would be a type 2 SCD.
 ```
 
 ***
