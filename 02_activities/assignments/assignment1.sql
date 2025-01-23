@@ -35,10 +35,10 @@ filtered by vendor IDs between 8 and 10 (inclusive) using either:
 	1.  two conditions using AND -- should be three conditions using OR?
 	2.  one condition using BETWEEN
 */
--- option 1: three conditions using OR...
+-- option 1: two conditions using AND 
 SELECT *, quantity * cost_to_customer_per_qty AS price
 FROM customer_purchases
-WHERE vendor_id = 8 OR vendor_id = 9 OR vendor_id = 10;
+WHERE vendor_id >= 8 AND vendor_id <= 10;
 
 
 -- option 2: one condition using BETWEEN
