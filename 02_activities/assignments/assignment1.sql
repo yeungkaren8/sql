@@ -1,6 +1,6 @@
 /* ASSIGNMENT 1 */
 /* SECTION 2 */
-
+/* Karen Yeung, submitted January 25, 2025 */
 
 --SELECT
 /* 1. Write a query that returns everything in the customer table. */
@@ -123,6 +123,18 @@ When inserting the new vendor, you need to appropriately align the columns to be
 VALUES(col1,col2,col3,col4,col5) 
 */
 
+DROP TABLE IF EXISTS temp.new_vendor; --to make sure this temp table doesn't already exist
+CREATE TEMP TABLE temp.new_vendor AS
+--create temp copy of vendor table
+	SELECT *
+	FROM vendor;
+
+--insert new row into temp table with specified information. specify column names that the information will go into
+INSERT INTO temp.new_vendor(vendor_id, vendor_name, vendor_type, vendor_owner_first_name, vendor_owner_last_name)
+	VALUES(10, 'Thomass Superfood Store', 'Fresh Focused', 'Thomas', 'Rosenthal');
+	
+--SELECT * FROM temp.new_vendor --to view new temp table with inserted value
+
 
 
 -- Date
@@ -130,12 +142,27 @@ VALUES(col1,col2,col3,col4,col5)
 
 HINT: you might need to search for strfrtime modifers sqlite on the web to know what the modifers for month 
 and year are! */
-
-
+SELECT customer_id --did not specify DISTINCT so one customer can have duplicate rows, i.e. multiple purchases from the same month+year 
+,STRFTIME('%m', market_date) AS month
+,STRFTIME('%Y', market_date) AS year
+FROM customer_purchases;
 
 /* 2. Using the previous query as a base, determine how much money each customer spent in April 2022. 
 Remember that money spent is quantity*cost_to_customer_per_qty. 
 
 HINTS: you will need to AGGREGATE, GROUP BY, and filter...
 but remember, STRFTIME returns a STRING for your WHERE statement!! */
+WITH monthly_transactions AS (
+	SELECT 
+	customer_id 
+	,STRFTIME('%m', market_date) AS month
+	,STRFTIME('%Y', market_date) AS year
+	, SUM(quantity*cost_to_customer_per_qty) AS money_spent
+	FROM customer_purchases
+	GROUP BY customer_id, month, year;
+) --create CTE storing monthly spending from each customer
+SELECT *
+FROM monthly_transactions
+WHERE month = '04' AND year = '2022';
+
 
