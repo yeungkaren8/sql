@@ -1,4 +1,5 @@
 # Assignment 1: Meet the farmersmarket.db and Basic SQL
+**Karen Yeung, submitted January 25, 2025**
 
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
@@ -14,10 +15,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-one`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x] Create a branch called `assignment-one`.
+- [x] Ensure that the repository is public.
+- [x] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [x] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
@@ -105,6 +106,8 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 	- These are the tables that are connected
 	- <img src="./images/01_farmers_market_conceptual_model.png" width="600">
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
+
+**KY: Logical data model can be found in file "assignment1_1-model.png"**
 
 ***
 
@@ -201,9 +204,55 @@ Link if you encounter a paywall: https://web.archive.org/web/20240422105834/http
 
 **What values systems are embedded in databases and data systems you encounter in your day-to-day life?**
 
-Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
+Consider, for example, concepts of fairness, inequality, social structures, marginalization, intersection of technology and society, etc.
 
 
 ```
-Your thoughts...
+While the days of the COVID-19 pandemic being an urgent public health emergency 
+are thankfully behind us, I would like to discuss a technology that rose to 
+prominence during the pandemic that has practical applications across other 
+public health concerns beyond COVID-19 - digital contact tracing. Digital 
+contact tracing is a method of identifying individuals that have come into 
+close proximity with each other through their digital footprint. In the case of 
+the COVID-19 pandemic, this would be an uninfected person with another person 
+who may become infected. This is typically accomplished by matching an 
+individual to a location via digital traces, such as data from their mobile 
+devices or security footage, and then cross referencing a database to locate 
+other individuals who have also been in the same location within a similar time 
+frame. Potential close contacts that are identified can then take pre-emptive 
+steps to protect themselves and others, for example by taking a prophylactic or 
+self-quarantining, depending on the disease of concern. 
+
+Contact tracing has been employed in the past to track and limit the spread of 
+other infectious diseases like HIV, but the pandemic accelerated its 
+development to a more automated digital format, rather than the traditional 
+labour-intensive method of personal interviews that is also reliant on an 
+individual’s ability to recall and retrace their own steps. Despite the utility 
+of contact tracing as a public health measure, unequal access to digital 
+contact tracing technology and poorly defined legislature around the use of 
+contact tracing information can disproportionally impact the marginalized, 
+which I will briefly discuss in the context of the COVID-19 pandemic. 
+
+During the pandemic, digital contact tracing was used to track potential virus 
+exposure and provided an objective safety guideline for workplaces – if you 
+were identified as a close contact of someone with a confirmed SARS-CoV2 
+infection, you are required to stay home to prevent potentially spreading the 
+virus to others in the workplace. What this does not take into account is the 
+way socioeconomical status influences how we interact with others, and the 
+inequitable impact of such workplace restrictions. People with lower income are 
+more likely to live in densely-populated community or group housing, and 
+therefore more likely to become a close contact of an infected individual 
+simply due to the sheer number of contacts that are in proximity. Low-paying 
+jobs are also those more likely to require workers be at the workplace in 
+person, such as in customer service, with no alternative for stay-at-home work. 
+Thus, those individuals that are more likely to become a close contact and 
+forced to self-quarantine are also those that require the money from jobs that 
+cannot go to due to their contact status. Additionally, those who are not able 
+to afford devices that support contact tracing are also forced out of the 
+workplace by not being able to participate in the system. 
+
+Although there are clear advantages to digital contact tracing in controlling 
+the spread of infectious diseases, equitable use of the technology and 
+interpretation of tracing data metrics must be implemented to ensure that 
+everyone can benefit.
 ```
