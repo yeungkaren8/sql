@@ -1,6 +1,6 @@
 /* ASSIGNMENT 2 */
 /* SECTION 2 */
-/*Karen Yeung, UofT DSI, submitted February xx, 2025*/
+/*Karen Yeung, UofT DSI, submitted February 1, 2025*/
 
 -- COALESCE
 /* 1. Our favourite manager wants a detailed long list of products, but is afraid of tables! 
