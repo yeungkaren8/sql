@@ -1,4 +1,5 @@
 # Assignment 2: Design a Logical Model and Advanced SQL
+**-Karen Yeung, UofT DSI, submitted February 1, 2025**
 
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
@@ -14,10 +15,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-two`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x] Create a branch called `assignment-two`.
+- [x] Ensure that the repository is public.
+- [x] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [x] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
@@ -33,6 +34,8 @@ Steps to complete this part of the assignment:
 
 
 ###  Design a Logical Model
+
+**KY: Diagrams for prompts 1 and 2 found as uploaded .png files.**
 
 #### Prompt 1
 Design a logical model for a small bookstore. 📚
@@ -54,7 +57,20 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Option 1: CUSTOMER_ADDRESS table would have some number of columns storing customer
+information (eg. customer_id, first_name, last_name, phone_number, etc), and one column 
+storing their address. The value in this column would be overwritten if the customer's 
+address is updated, such that each customer would only ever have one up-to-date record. 
+This would be a type 1 SCD.
+
+Option 2: CUSTOMER_ADDRESS table would have columns storing customer information as in 
+option 1, but they would have multiple columns storing information about their address 
+(eg. address, is_current [boolean]). If a customer's address is to be updated, the new 
+address would be stored as a new record, such that each customer could have multiple rows 
+in the table. The is_current column would be updated to reflect whether the specific 
+address row is up-to-date (TRUE for current, FALSE for past). This would allow for 
+tracking of address changes. Additionally, more columns could be included to reflect when 
+a record is changed (eg. address_added_date). This would be a type 2 SCD.
 ```
 
 ***
@@ -182,5 +198,40 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Vicki Boykis' article discusses the hidden human labour costs that forms the 
+foundation behind certain aspects of artificial intelligence (AI), specifically in 
+machine learning and data labelling. A neural net describes a model consisting of 
+interconnected nodes that finds patterns in data to solve specific problems. Neural 
+nets can be trained to identify what is in a certain image, such as what was described 
+in the article, which has practical applications in content moderation. For example, 
+consider an AI detection system that could flag and remove image or video posts on a 
+social media platform that violates their terms of service. Automation of content 
+moderation speeds up the way online platforms can handle and/or censor harmful or 
+inappropriate information immensely. However, to get to this point, the AI tool must 
+be trained on what is or is not considered inappropriate content, and this is where 
+the problem begins.
+
+Training a machine learning system requires a starting dataset curated to teach it 
+what results we want – in the case of a content flagging system, this could be example 
+posts that are considered flags. The system then tries to build internal connections 
+to help predict what pieces or patterns of data would qualify a post as a “flag”. The 
+quality of this prediction is determined by the quality and quantity of the original 
+teaching dataset. But creating that original teaching dataset requires people – human 
+workers – to assign labels to the data, as in to determine whether a post should be 
+flagged or not. As mentioned in the article, this is often an extremely 
+labour-intensive task and outsourced as underpaid work to graduate students and 
+low-wage workers. People who take on these data labelling tasks are typically not in 
+positions of power and are exploited to process high volumes of data as fast as 
+possible, while being paid less than minimum wage. Additionally, there is no oversight 
+over the accuracy and fairness of data labelling as workers are forced to meet high 
+quotas to keep their jobs. This also allows for unconscious bias to filter into 
+datasets used to train machine learning systems, since workers will be creating their 
+label assignment based on their own worldviews and preconceived ideas, thus 
+propagating biases into these data systems. However, because virtually everyone is 
+using these AI tools, not adopting this technology is also not an option for business 
+and organizations, since doing so will make them a weaker competitor in the market. 
+Therefore, while AI tools are incredibly powerful and can be leveraged to solve 
+problems that humans cannot, building these tools requires ethical consideration at 
+all levels of its construction.
+
 ```
